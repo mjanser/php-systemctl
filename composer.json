@@ -1,0 +1,33 @@
+{
+    "name": "mjanser/systemctl",
+    "type": "library",
+    "description": "Library for managing systemd services using systemctl",
+    "keywords": ["systemd"],
+    "homepage": "https://github.com/mjanser/systemctl",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Martin Janser",
+            "email": "martin@duss-janser.ch"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/mjanser/systemctl",
+        "issues": "https://github.com/mjanser/systemctl/issues"
+    },
+    "require": {
+        "php": ">=5.6",
+        "symfony/process": "^2.8"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.2",
+        "fabpot/php-cs-fixer": "^1.11",
+        "satooshi/php-coveralls": "^1.0"
+    },
+    "autoload": {
+        "psr-4": { "SystemCtl\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "SystemCtl\\Test\\": "tests/" }
+    }
+}

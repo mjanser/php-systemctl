@@ -1,0 +1,23 @@
+language: php
+
+matrix:
+    include:
+        - php: 5.6
+        - php: 7.0
+
+sudo: false
+
+cache:
+    directories:
+        - $HOME/.composer/cache
+
+install:
+    - travis_retry composer update --no-interaction
+
+script:
+    - php vendor/bin/phpunit --verbose --exclude-group functional --coverage-clover build/logs/clover.xml
+    - phpenv config-rm xdebug.ini || return 0
+    - php vendor/bin/php-cs-fixer --diff --dry-run -v fix
+
+after_success:
+    - php vendor/bin/coveralls -v
