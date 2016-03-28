@@ -1,7 +1,7 @@
 # systemctl
 
-[![Build Status](https://travis-ci.org/mjanser/systemctl.svg?branch=master)](https://travis-ci.org/mjanser/systemctl)
-[![Coverage Status](https://coveralls.io/repos/github/mjanser/systemctl/badge.svg?branch=master)](https://coveralls.io/github/mjanser/systemctl?branch=master)
+[![Build Status](https://travis-ci.org/mjanser/php-systemctl.svg?branch=master)](https://travis-ci.org/mjanser/php-systemctl)
+[![Coverage Status](https://coveralls.io/repos/github/mjanser/php-systemctl/badge.svg?branch=master)](https://coveralls.io/github/mjanser/php-systemctl?branch=master)
 
 This library can be used to manage systemd services.
 Internally it uses the [Symfony Process Component](https://symfony.com/doc/current/components/process.html) for running the `systemctl` command.

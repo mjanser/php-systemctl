@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Library for managing systemd services using systemctl",
     "keywords": ["systemd"],
-    "homepage": "https://github.com/mjanser/systemctl",
+    "homepage": "https://github.com/mjanser/php-systemctl",
     "license": "GPLv3",
     "authors": [
         {
@@ -12,8 +12,8 @@
         }
     ],
     "support": {
-        "source": "https://github.com/mjanser/systemctl",
-        "issues": "https://github.com/mjanser/systemctl/issues"
+        "source": "https://github.com/mjanser/php-systemctl",
+        "issues": "https://github.com/mjanser/php-systemctl/issues"
     },
     "require": {
         "php": ">=5.6",
