@@ -15,9 +15,10 @@ install:
     - travis_retry composer update --no-interaction
 
 script:
-    - php vendor/bin/phpunit --verbose --exclude-group functional --coverage-clover build/logs/clover.xml
+    - php vendor/bin/phpunit --verbose --coverage-text --coverage-clover coverage.clover
     - phpenv config-rm xdebug.ini || return 0
     - php vendor/bin/php-cs-fixer --diff --dry-run -v fix
 
 after_success:
-    - php vendor/bin/coveralls -v
+    - wget https://scrutinizer-ci.com/ocular.phar
+    - php ocular.phar code-coverage:upload --format php-clover coverage.clover

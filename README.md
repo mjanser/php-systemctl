@@ -1,7 +1,7 @@
-# systemctl
+# SystemCtl for PHP
 
 [![Build Status](https://travis-ci.org/mjanser/php-systemctl.svg?branch=master)](https://travis-ci.org/mjanser/php-systemctl)
-[![Coverage Status](https://coveralls.io/repos/github/mjanser/php-systemctl/badge.svg?branch=master)](https://coveralls.io/github/mjanser/php-systemctl?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/mjanser/php-systemctl/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/mjanser/php-systemctl/?branch=master)
 
 This library can be used to manage systemd services.
 Internally it uses the [Symfony Process Component](https://symfony.com/doc/current/components/process.html) for running the `systemctl` command.
@@ -41,4 +41,3 @@ By default the command `systemctl` will be executed with `sudo`. You can change 
 SystemCtl\Service::setCommand('my-systemctl');
 SystemCtl\Service::sudo(false);
 ```
-

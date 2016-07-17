@@ -1,0 +1,24 @@
+# .scrutinizer.yml
+imports:
+    - php
+
+filter:
+    excluded_paths: [vendor/*, bin/*]
+
+tools:
+    php_sim: true
+    php_mess_detector: true
+    php_cs_fixer: true
+    php_analyzer: true
+    sensiolabs_security_checker: true
+    php_code_coverage: true
+    php_cpd:
+        enabled: true
+        excluded_dirs:        [vendor, tests, bin]
+    php_loc:
+        enabled: true
+        excluded_dirs:        [vendor]
+    php_pdepend:
+        enabled: true
+        excluded_dirs:        [vendor, tests, bin]
+    external_code_coverage: true

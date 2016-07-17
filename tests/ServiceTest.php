@@ -21,7 +21,7 @@ use SystemCtl\Service;
  * @covers SystemCtl\Service::sudo
  * @covers SystemCtl\Service::<private>
  */
-class ServiceMockTest extends \PHPUnit_Framework_TestCase
+class ServiceTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var string
