@@ -64,7 +64,7 @@ class Service
     /**
      * Checks whether or not the service is running.
      *
-     * @throws CommandFailedException If the command failed.
+     * @throws CommandFailedException If the command failed
      *
      * @return bool
      */
@@ -90,7 +90,7 @@ class Service
     /**
      * Starts the service.
      *
-     * @throws CommandFailedException If the command failed.
+     * @throws CommandFailedException If the command failed
      */
     public function start()
     {
@@ -113,7 +113,7 @@ class Service
     /**
      * Stops the service.
      *
-     * @throws CommandFailedException If the command failed.
+     * @throws CommandFailedException If the command failed
      */
     public function stop()
     {
@@ -136,7 +136,7 @@ class Service
     /**
      * Restarts the service.
      *
-     * @throws CommandFailedException If the command failed.
+     * @throws CommandFailedException If the command failed
      */
     public function restart()
     {
