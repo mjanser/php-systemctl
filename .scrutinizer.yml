@@ -21,4 +21,5 @@ tools:
     php_pdepend:
         enabled: true
         excluded_dirs:        [vendor, tests, bin]
-    external_code_coverage: true
+    external_code_coverage:
+        runs: 5
