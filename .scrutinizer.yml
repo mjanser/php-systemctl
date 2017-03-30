@@ -14,12 +14,12 @@ tools:
     php_code_coverage: true
     php_cpd:
         enabled: true
-        excluded_dirs:        [vendor, tests, bin]
+        excluded_dirs:        [vendor, bin, Tests]
     php_loc:
         enabled: true
         excluded_dirs:        [vendor]
     php_pdepend:
         enabled: true
-        excluded_dirs:        [vendor, tests, bin]
+        excluded_dirs:        [vendor, bin, Tests]
     external_code_coverage:
         runs: 5

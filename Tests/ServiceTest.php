@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the systemctl PHP library.
  *
@@ -9,19 +11,20 @@
  * with this source code in the file LICENSE.
  */
 
-namespace SystemCtl\tests;
+namespace SystemCtl\Tests;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Process\Process;
 use SystemCtl\CommandFailedException;
 use SystemCtl\Service;
 
 /**
- * @covers SystemCtl\Service::__construct
- * @covers SystemCtl\Service::setCommand
- * @covers SystemCtl\Service::sudo
- * @covers SystemCtl\Service::<private>
+ * @covers \SystemCtl\Service::__construct
+ * @covers \SystemCtl\Service::setCommand
+ * @covers \SystemCtl\Service::sudo
+ * @covers \SystemCtl\Service::<private>
  */
-class ServiceTest extends \PHPUnit_Framework_TestCase
+class ServiceTest extends TestCase
 {
     /**
      * @var string
@@ -56,7 +59,7 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers SystemCtl\Service::__toString
+     * @covers \SystemCtl\Service::__toString
      */
     public function testServiceName()
     {
@@ -68,7 +71,7 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers SystemCtl\Service::isRunning
+     * @covers \SystemCtl\Service::isRunning
      */
     public function testIsRunning()
     {
@@ -81,7 +84,7 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers SystemCtl\Service::isRunning
+     * @covers \SystemCtl\Service::isRunning
      */
     public function testIsNotRunning()
     {
@@ -94,8 +97,8 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers SystemCtl\Service::isRunning
-     * @covers SystemCtl\CommandFailedException
+     * @covers \SystemCtl\Service::isRunning
+     * @covers \SystemCtl\CommandFailedException
      */
     public function testCheckInvalidServiceThrowsException()
     {
@@ -109,8 +112,8 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers SystemCtl\Service::isRunning
-     * @covers SystemCtl\Service::start
+     * @covers \SystemCtl\Service::isRunning
+     * @covers \SystemCtl\Service::start
      */
     public function testStart()
     {
@@ -126,8 +129,8 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers SystemCtl\Service::isRunning
-     * @covers SystemCtl\Service::start
+     * @covers \SystemCtl\Service::isRunning
+     * @covers \SystemCtl\Service::start
      */
     public function testStartAlreadyRunning()
     {
@@ -142,9 +145,9 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers SystemCtl\Service::isRunning
-     * @covers SystemCtl\Service::start
-     * @covers SystemCtl\CommandFailedException
+     * @covers \SystemCtl\Service::isRunning
+     * @covers \SystemCtl\Service::start
+     * @covers \SystemCtl\CommandFailedException
      */
     public function testStartInvalidServiceThrowsException()
     {
@@ -159,8 +162,8 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers SystemCtl\Service::isRunning
-     * @covers SystemCtl\Service::stop
+     * @covers \SystemCtl\Service::isRunning
+     * @covers \SystemCtl\Service::stop
      */
     public function testStop()
     {
@@ -176,8 +179,8 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers SystemCtl\Service::isRunning
-     * @covers SystemCtl\Service::stop
+     * @covers \SystemCtl\Service::isRunning
+     * @covers \SystemCtl\Service::stop
      */
     public function testStopWhenNotRunning()
     {
@@ -192,9 +195,9 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers SystemCtl\Service::isRunning
-     * @covers SystemCtl\Service::stop
-     * @covers SystemCtl\CommandFailedException
+     * @covers \SystemCtl\Service::isRunning
+     * @covers \SystemCtl\Service::stop
+     * @covers \SystemCtl\CommandFailedException
      */
     public function testStopInvalidServiceThrowsException()
     {
@@ -209,7 +212,7 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers SystemCtl\Service::restart
+     * @covers \SystemCtl\Service::restart
      */
     public function testRestart()
     {
@@ -224,9 +227,9 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers SystemCtl\Service::isRunning
-     * @covers SystemCtl\Service::restart
-     * @covers SystemCtl\CommandFailedException
+     * @covers \SystemCtl\Service::isRunning
+     * @covers \SystemCtl\Service::restart
+     * @covers \SystemCtl\CommandFailedException
      */
     public function testRestartInvalidServiceThrowsException()
     {
@@ -240,9 +243,9 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers SystemCtl\Service::isRunning
-     * @covers SystemCtl\Service::restart
-     * @covers SystemCtl\CommandFailedException
+     * @covers \SystemCtl\Service::isRunning
+     * @covers \SystemCtl\Service::restart
+     * @covers \SystemCtl\CommandFailedException
      */
     public function testExceptionHasProcess()
     {
