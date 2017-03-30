@@ -9,26 +9,30 @@ This source file is subject to the GPL license that is bundled
 with this source code in the file LICENSE.
 EOF;
 
-Symfony\CS\Fixer\Contrib\HeaderCommentFixer::setHeader($header);
-
-$finder = Symfony\CS\Finder\DefaultFinder::create()
+$finder = PhpCsFixer\Finder::create()
     ->in(__DIR__)
 ;
 
-return Symfony\CS\Config\Config::create()
-    ->fixers([
-        'header_comment',
-        'newline_after_open_tag',
-        'no_empty_comment',
-        'no_useless_return',
-        'ordered_use',
-        'php_unit_construct',
-        'php_unit_dedicate_assert',
-        'php_unit_strict',
-        'phpdoc_order',
-        'short_array_syntax',
-        'strict',
-        'strict_param',
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@Symfony' => true,
+        '@Symfony:risky' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'declare_strict_types' => true,
+        'header_comment' => [
+            'header' => $header,
+        ],
+        'heredoc_to_nowdoc' => true,
+        'no_unreachable_default_argument_value' => true,
+        'no_useless_else' => true,
+        'no_useless_return' => true,
+        'ordered_imports' => true,
+        'php_unit_strict' => true,
+        'phpdoc_add_missing_param_annotation' => true,
+        'phpdoc_order' => true,
+        'strict_comparison' => true,
+        'strict_param' => true,
     ])
-    ->finder($finder)
+    ->setRiskyAllowed(true)
+    ->setFinder($finder)
 ;

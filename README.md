@@ -8,7 +8,7 @@ Internally it uses the [Symfony Process Component](https://symfony.com/doc/curre
 
 ## Requirements
 
-- PHP 5.6 or higher
+- PHP 7.0 or higher
 - `systemd` installed
 
 ## Installation
