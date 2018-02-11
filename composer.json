@@ -4,7 +4,7 @@
     "description": "Library for managing systemd services using systemctl",
     "keywords": ["systemd"],
     "homepage": "https://github.com/mjanser/php-systemctl",
-    "license": "GPLv3",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Martin Janser",
