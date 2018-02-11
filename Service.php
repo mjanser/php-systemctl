@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace SystemCtl;
 
 use Symfony\Component\Process\Process;
-use Symfony\Component\Process\ProcessBuilder;
 
 class Service
 {
@@ -29,6 +28,11 @@ class Service
      * @var bool
      */
     private static $sudo = true;
+
+    /**
+     * @var int
+     */
+    private static $timeout = 3;
 
     /**
      * @var string
@@ -56,6 +60,16 @@ class Service
     }
 
     /**
+     * Specifies the timeout in seconds for the systemctl process.
+     *
+     * @param int $timeout
+     */
+    public static function setTimeout($timeout)
+    {
+        self::$timeout = (int) $timeout;
+    }
+
+    /**
      * @param string $name Name of the service to manage
      */
     public function __construct($name)
@@ -72,10 +86,11 @@ class Service
      */
     public function isRunning()
     {
-        $builder = $this->getProcessBuilder();
-        $builder->add('--lines=0')->add('status')->add($this->name);
-
-        $process = $builder->getProcess();
+        $process = $this->getProcess([
+            '--lines=0',
+            'status',
+            $this->name,
+        ]);
 
         $process->run();
 
@@ -100,10 +115,10 @@ class Service
             return;
         }
 
-        $builder = $this->getProcessBuilder();
-        $builder->add('start')->add($this->name);
-
-        $process = $builder->getProcess();
+        $process = $this->getProcess([
+            'start',
+            $this->name,
+        ]);
 
         $process->run();
 
@@ -123,10 +138,10 @@ class Service
             return;
         }
 
-        $builder = $this->getProcessBuilder();
-        $builder->add('stop')->add($this->name);
-
-        $process = $builder->getProcess();
+        $process = $this->getProcess([
+            'stop',
+            $this->name,
+        ]);
 
         $process->run();
 
@@ -142,10 +157,10 @@ class Service
      */
     public function restart()
     {
-        $builder = $this->getProcessBuilder();
-        $builder->add('restart')->add($this->name);
-
-        $process = $builder->getProcess();
+        $process = $this->getProcess([
+            'restart',
+            $this->name,
+        ]);
 
         $process->run();
 
@@ -163,20 +178,23 @@ class Service
     }
 
     /**
-     * Creates and prepares a process builder.
+     * Creates and prepares a process.
      *
-     * @return ProcessBuilder
+     * @param string[] $arguments
+     *
+     * @return Process
      */
-    private function getProcessBuilder()
+    private function getProcess(array $arguments)
     {
         $command = explode(' ', self::$command);
         if (self::$sudo) {
             array_unshift($command, 'sudo');
         }
+        $command = array_merge($command, $arguments);
 
-        $builder = ProcessBuilder::create($command);
-        $builder->setTimeout(3);
+        $process = new Process($command);
+        $process->setTimeout(self::$timeout);
 
-        return $builder;
+        return $process;
     }
 }
