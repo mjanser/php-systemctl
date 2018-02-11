@@ -16,7 +16,7 @@
         "issues": "https://github.com/mjanser/php-systemctl/issues"
     },
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.1",
         "symfony/process": "^4.0"
     },
     "require-dev": {
