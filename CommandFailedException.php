@@ -20,7 +20,7 @@ class CommandFailedException extends \RuntimeException
     /**
      * @var Process
      */
-    private $process;
+    protected $process;
 
     /**
      * @param Process $process
