@@ -22,24 +22,24 @@ use SystemCtl\Service;
  * @covers \SystemCtl\Service::__construct
  * @covers \SystemCtl\Service::setCommand
  * @covers \SystemCtl\Service::sudo
- * @covers \SystemCtl\Service::<private>
+ * @covers \SystemCtl\Service::<protected>
  */
 class ServiceTest extends TestCase
 {
     /**
      * @var string
      */
-    private $commandFilename;
+    protected $commandFilename;
 
     /**
      * @var string
      */
-    private $callCountFilename;
+    protected $callCountFilename;
 
     /**
      * @var int
      */
-    private $callCount = 1;
+    protected $callCount = 1;
 
     protected function setUp()
     {
@@ -270,7 +270,7 @@ class ServiceTest extends TestCase
      *
      * @return Service
      */
-    private function getMockedService($name)
+    protected function getMockedService($name)
     {
         $this->commandFilename = tempnam(sys_get_temp_dir(), 'systemctl');
         $this->callCountFilename = tempnam(sys_get_temp_dir(), 'systemctl');
@@ -299,7 +299,7 @@ class ServiceTest extends TestCase
      * @param string[] $arguments List of expected arguments
      * @param int      $exitCode  Exit code which the command should return
      */
-    private function expectCall(array $arguments, $exitCode)
+    protected function expectCall(array $arguments, $exitCode)
     {
         $conditions = [];
         $index = 1;
@@ -324,7 +324,7 @@ class ServiceTest extends TestCase
     /**
      * Sets no more expected calls to the systemctl command.
      */
-    private function expectNoOtherCalls()
+    protected function expectNoOtherCalls()
     {
         $code = 'fwrite(STDERR, "Invalid call count or arguments specified: ".$c.", ".var_export($argv, true)); exit(250);'."\n";
 

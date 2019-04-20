@@ -22,22 +22,22 @@ class Service
     /**
      * @var string
      */
-    private static $command = 'systemctl';
+    protected static $command = 'systemctl';
 
     /**
      * @var bool
      */
-    private static $sudo = true;
+    protected static $sudo = true;
 
     /**
      * @var int
      */
-    private static $timeout = 3;
+    protected static $timeout = 3;
 
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * Sets the systemctl command to use.
@@ -184,7 +184,7 @@ class Service
      *
      * @return Process
      */
-    private function getProcess(array $arguments)
+    protected function getProcess(array $arguments)
     {
         $command = explode(' ', self::$command);
         if (self::$sudo) {
